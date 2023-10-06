@@ -19,11 +19,20 @@ export function Connection({ chainInfo }: { chainInfo: ChainInfo }) {
         denom: "uknow",
     };
 
+    const formattedAddress = `${account?.bech32Address.toString().substring(0,6)}...${account?.bech32Address.toString().substring(account?.bech32Address.toString().length - 6, account?.bech32Address.toString().length)}` ;
+
+    const linkedAddress = {
+        border: "1px solid grey",
+        padding: "10px",
+        margin: "10px",
+        borderRadius: "5px",
+    }
+
     return (
         <>
             {isConnected ? (
                 <>
-                    <div>Linked wallet address: {account?.bech32Address}</div>
+                    <div style={linkedAddress}>Linked wallet address: {formattedAddress}</div>
                     <button onClick={() => disconnect(true)}>Disconnect</button>
                 </>
             ) : (
