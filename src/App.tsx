@@ -1,11 +1,9 @@
 import { configureGraz } from "graz";
-import {
-  Connection
-} from "./components";
 import "./App.css";
 import {
   OKP4TestnetChain,
 } from "./constants";
+import { Sidebar } from "./components/Sidebar";
 
 configureGraz({
   defaultChain: OKP4TestnetChain,
@@ -14,9 +12,10 @@ configureGraz({
 function App() {
   return (
     <>
-      <h1>OKP4 Vite Starter</h1>
-
-      <Connection chainInfo={OKP4TestnetChain} />
+    <Sidebar />
+    <div className="mainApp">
+      <h1>Settings</h1>	
+    </div>
 
     </>
   );

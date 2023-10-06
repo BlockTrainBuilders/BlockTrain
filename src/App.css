@@ -1,8 +1,27 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  margin: 1em;
+  width: 30%;
+  border: 1px solid grey;
+  padding: 1em;
+}
+
+.mainApp {
+  display: flex;
+  flex-direction: row;
+  items-align: center;
+  width: 100%;
+  justify-content: center;
+  border: 1px solid grey;
+  margin: 1em;
+  padding: 1em;
 }
 
 .logo {
@@ -31,12 +50,4 @@
   a:nth-of-type(2) .logo {
     animation: logo-spin infinite 20s linear;
   }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }
