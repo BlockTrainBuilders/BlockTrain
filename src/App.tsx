@@ -18,11 +18,12 @@ function App() {
     <>
     <Sidebar />
     <div className="mainApp">
-      <h1>Settings</h1>	
+        <h1>Settings</h1>	
+        <div>
+          <QueryLawStone contractAddress={ contract_addr} />
+        </div>
     </div>
 
-      <QueryLawStone contractAddress={ contract_addr} />
-      <Connection chainInfo={OKP4TestnetChain} />
     </>
   );
 }
