@@ -1,5 +1,9 @@
+import { Sidebar } from "./Sidebar";
+
 export function Settings() {
     return (
+        <>
+        <Sidebar />
         <div className="mainApp">
         <h1>Settings</h1>	
         <div>
@@ -26,5 +30,6 @@ export function Settings() {
             </table>
         </div>
       </div>
+      </>
     );
 }

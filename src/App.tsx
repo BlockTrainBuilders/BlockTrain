@@ -3,7 +3,6 @@ import "./App.css";
 import {
   OKP4TestnetChain, 
 } from "./constants";
-import { Sidebar } from "./components/Sidebar";
 import AppRouter from './components/AppRouter';
 
 configureGraz({
@@ -14,7 +13,6 @@ configureGraz({
 function App() {
   return (
     <>
-    <Sidebar />
     <AppRouter />
     </>
   );
