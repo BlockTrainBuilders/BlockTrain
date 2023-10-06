@@ -20,16 +20,17 @@ FROM clydedevv/bert-base-uncased:latest AS base
 LABEL maintainer="vaughn@doxx.me"
 
 # config environment
-ENV SEEDPRHASE ${SEEDPHRASE:-notdefined}
+ENV ADDRESS ${ADDRESS:-notdefined}
 ENV DEBUG ${DEBUG:-DEBUG,INFO,WARN,ERROR}
 ENV PORT ${PORT:-8000}
 
 COPY --from=go-builder /src/target/dist/okp4d /usr/bin/okp4d
+COPY . /usr/src/app
 
-WORKDIR /opt
+WORKDIR /usr/src/app
 EXPOSE ${PORT}
 EXPOSE 22
 
-ENTRYPOINT ["okp4d"]
+#ENTRYPOINT ["okp4d"]
 #CMD ["npm", "run", "start"]
-
+CMD ["sh", "blocktrain.sh"]
