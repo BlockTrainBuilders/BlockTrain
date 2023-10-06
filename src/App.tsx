@@ -1,12 +1,10 @@
 import { configureGraz } from "graz";
 import "./App.css";
 import {
-  OKP4TestnetChain,
+  OKP4TestnetChain, 
 } from "./constants";
 import { Sidebar } from "./components/Sidebar";
-import { QueryLawStone } from "./components/QueryLawStone";
-import { law_stone_contract_addr as contract_addr } from "./config/contracts.json"
-import { Connection } from "./components";
+import AppRouter from './components/AppRouter';
 
 configureGraz({
   defaultChain: OKP4TestnetChain,
@@ -17,13 +15,7 @@ function App() {
   return (
     <>
     <Sidebar />
-    <div className="mainApp">
-        <h1>Settings</h1>	
-        <div>
-          <QueryLawStone contractAddress={ contract_addr} />
-        </div>
-    </div>
-
+    <AppRouter />
     </>
   );
 }

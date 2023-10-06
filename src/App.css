@@ -24,6 +24,24 @@
   padding: 1em;
 }
 
+.table {
+  border: 1px solid grey;
+  table-layout: fixed;
+  width: 80%;
+}
+
+.table th {
+  padding: 0.5em;
+  text-align: center;
+  border-bottom: 1px solid grey;
+}
+
+.table td {
+  padding: 0.5em;
+  text-align: center;
+  border: 1px solid grey;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
