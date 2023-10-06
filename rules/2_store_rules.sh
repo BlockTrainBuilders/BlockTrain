@@ -6,9 +6,10 @@ set -euo pipefail
 # see https://docs.okp4.network/contracts/okp4-law-stone#instantiatemsg
 # replace mywallet with your wallet name
 okp4d tx wasm instantiate 5 \
-    --label "single-source" \
-    --from mywallet \
-    --admin "okp418yj2mc7hjk2zqtwr9exfyj625kffwmjggd3tux" \
+    --from blocktrain \
+    --label "rules-tutorial-ex-$(date +%s)" \
+    --no-admin \
+    --chain-id okp4-nemeton-1 \
     --gas 1000000 \
-    --broadcast-mode block \
-    "{"program":"$(cat my_knowledgebase.pl | base64)", "storage_address": "okp41gygq7hhy8k9htuauagzl62hm5p5zg5x65yepv3lpz9s7qtkk3e8q69y5p6"}"
+    --node https://api.testnet.okp4.network:443/rpc \
+    "{\"program\":\"$(cat my_knowledgebase.pl | base64 | tr -d '\n\r')\", \"storage_address\": \"okp41mpyp9t48q2dy6s4lkxwjpy8sgg4r823hwam2tap2ra86hmgrrqyq0ushlr\"}"
