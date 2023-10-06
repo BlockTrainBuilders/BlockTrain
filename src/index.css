@@ -46,7 +46,7 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #351c75;
   cursor: pointer;
   transition: border-color 0.25s;
 }
@@ -56,6 +56,23 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+input {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  margin: 0.5em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #5b5b5b;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+input::placeholder {
+  color: #ccc; 
 }
 
 @media (prefers-color-scheme: light) {

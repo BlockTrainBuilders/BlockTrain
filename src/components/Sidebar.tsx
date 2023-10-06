@@ -19,12 +19,17 @@ export function Sidebar() {
     navigate('/');
   };
 
+  const goToModels = () => {
+    navigate('/models');
+  };
+
     return (
     <div className="sidebar">
         <h1 onClick={goToHome}>BlockTrain</h1>
-
+        
         <Connection chainInfo={OKP4TestnetChain} />
-        <button onClick={goToSettings}>Settings</button>
+        <button className="navButton" onClick={goToModels}>Models</button>
+        <button className="navButton" onClick={goToSettings}>Settings</button>
       </div>
     );
 }
