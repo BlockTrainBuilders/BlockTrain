@@ -20,7 +20,7 @@ export function Connection({ chainInfo }: { chainInfo: ChainInfo }) {
     };
 
     return (
-        <div>
+        <>
             {isConnected ? (
                 <>
                     <div>Linked wallet address: {account?.bech32Address}</div>
@@ -41,6 +41,6 @@ export function Connection({ chainInfo }: { chainInfo: ChainInfo }) {
                     </button>
                 </>
             )}
-        </div>
+        </>
     );
 }
