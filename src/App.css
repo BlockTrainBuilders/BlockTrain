@@ -11,6 +11,7 @@
   width: 30%;
   border: 1px solid grey;
   padding: 1em;
+  border-radius: 5px;
 }
 
 .navButton {
@@ -36,6 +37,13 @@
   border: 1px solid grey;
   margin: 1em;
   padding: 1em;
+  border-radius: 5px;
+}
+
+.models {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .model {
@@ -45,6 +53,22 @@
   border: 1px solid grey;
   margin: 1em;
   padding: 1em;
+  min-width: 42%;
+  border-radius: 5px;
+  background-color: grey;
+  color: black;
+}
+
+.modelNotAllowed {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  border: 1px solid grey;
+  margin: 1em;
+  padding: 1em;
+  min-width: 42%;
+  color: grey;
+  border-radius: 5px;
 }
 
 .table {
