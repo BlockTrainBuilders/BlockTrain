@@ -6,7 +6,7 @@ services:
     environment:
       DEBUG: ${DEBUG}
       PORT: ${PORT}
-      SEEDPHRASE: ${SEEDPHRASE}
+      ADDRESS: ${ADDRESS}
     build:
       target: base
     ports:
