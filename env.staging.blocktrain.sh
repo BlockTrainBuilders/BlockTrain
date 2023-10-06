@@ -9,7 +9,7 @@ export TAG=v`node -pe "require(\"./package.json\")['version']"`
 
 # AKash private
 # akash keys add ${AKASH_KEY_NAME} --import "<seed phrase>"
-export AKASH_KEY_NAME=work3
+export AKASH_KEY_NAME=blocktrain
 
 # provider.europlots.com, HR (croatia)
 export AKASH_PROVIDER_STAGING=akash18ga02jzaq8cw52anyhzkwta5wygufgu6zsz6xc
