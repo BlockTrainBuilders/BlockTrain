@@ -5,7 +5,7 @@ export function Settings() {
         <>
         <Sidebar />
         <div className="mainApp">
-        <h1>Settings</h1>	
+        <h1>Access Settings</h1>	
         <div>
             <table className="table">
                 <thead>

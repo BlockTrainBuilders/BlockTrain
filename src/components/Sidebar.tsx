@@ -23,13 +23,18 @@ export function Sidebar() {
     navigate('/models');
   };
 
+  const goToConfiguration = () => {
+    navigate('/configuration');
+  };
+
     return (
     <div className="sidebar">
         <h1 onClick={goToHome}>BlockTrain</h1>
         
         <Connection chainInfo={OKP4TestnetChain} />
         <button className="navButton" onClick={goToModels}>Models</button>
-        <button className="navButton" onClick={goToSettings}>Settings</button>
+        <button className="navButton" onClick={goToSettings}>Access Settings</button>
+        <button className="navButton" onClick={goToConfiguration}>Customize Configuration</button>
       </div>
     );
 }

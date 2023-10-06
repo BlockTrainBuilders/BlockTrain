@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Home } from './Home';
 import { Settings } from './Settings';
 import { Models } from './Models';
+import { Configuration } from './Configuration';
 
 const AppRouter: React.FC = () => {
   return (
@@ -13,6 +14,7 @@ const AppRouter: React.FC = () => {
         <Route path="/" element={<Home />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/models" element={<Models />} />
+        <Route path="/configuration" element={<Configuration />} />
       </Routes>
     </Router>
   );
