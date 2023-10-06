@@ -1,8 +1,8 @@
 % Facts
-owner_of_dataset(alice, dataset1).
-owner_of_dataset(bob, dataset2).
-authorized_user(alice, model1).
-authorized_user(bob, model2).
+owner_of_dataset(okp41qljavkuszlclekhd2mjrnaexp4l6aljtnrvk6u, dataset1).
+owner_of_dataset(okp41lvlxy332ct3kfkjpjagpm0g3lvckh9pfmnwfr5, dataset2).
+authorized_user(okp41qljavkuszlclekhd2mjrnaexp4l6aljtnrvk6u, model1).
+authorized_user(okp41lvlxy332ct3kfkjpjagpm0g3lvckh9pfmnwfr5, model2).
 revenue_share(dataset1, model1, 70).  % 70% of revenue goes to dataset1 owner when model1 is used
 revenue_share(dataset2, model1, 30).  % 30% of revenue goes to dataset2 owner when model1 is used
 trained_on(model1, dataset1).
