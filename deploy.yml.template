@@ -3,7 +3,7 @@ version: "2.0"
 
 services:
   blocktrain-runner:
-    image: ${IMAGE}/blocktrain-server:${WORK3SERVER_TAG}
+    image: ${IMAGE}/blocktrain-server:${TAG}
     env:
       - PORT=${PORT}
       - DEBUG=${DEBUG}
