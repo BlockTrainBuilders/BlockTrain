@@ -11,16 +11,20 @@ configureGraz({
 export function Sidebar() {
   const navigate = useNavigate();
 
-  const handleButtonClick = () => {
+  const goToSettings = () => {
     navigate('/settings');
+  };
+
+  const goToHome = () => {
+    navigate('/');
   };
 
     return (
     <div className="sidebar">
-        <h1>BlockTrain</h1>
+        <h1 onClick={goToHome}>BlockTrain</h1>
 
         <Connection chainInfo={OKP4TestnetChain} />
-        <button onClick={handleButtonClick}>Settings</button>
+        <button onClick={goToSettings}>Settings</button>
       </div>
     );
 }

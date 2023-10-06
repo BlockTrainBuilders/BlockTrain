@@ -3,7 +3,6 @@ import "../App.css";
 import {
   OKP4TestnetChain,
 } from "../constants";
-import { QueryLawStone } from "../components/QueryLawStone";
 import { law_stone_contract_addr as contract_addr } from "../config/contracts.json"
 import { Sidebar } from "./Sidebar";
 import { composeIsOwnerQuery } from "../hooks/prologQueries";
