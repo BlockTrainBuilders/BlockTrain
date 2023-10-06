@@ -27,7 +27,7 @@ export function ModelCard({
       };
 
     return (
-        <div className={`${allowed ? "model" : "modelNotAllowed"}`}>
+        <>
             <h1>{title}</h1>	
             <div style={divStyle}>
                 <div >
@@ -49,6 +49,6 @@ export function ModelCard({
                     
                 </div> */}
             </div>
-      </div>
+      </>
     );
 }

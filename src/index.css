@@ -38,6 +38,13 @@ h1 {
   cursor: pointer;
 }
 
+h2 {
+  font-size: 1.3em;
+  line-height: 1.1;
+  text-align: left;
+  padding-left: 0.9em;
+}
+
 button {
   border-radius: 8px;
   border: 1px solid transparent;

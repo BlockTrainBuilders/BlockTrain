@@ -57,6 +57,7 @@
   border-radius: 5px;
   background-color: grey;
   color: black;
+  cursor: pointer;
 }
 
 .modelNotAllowed {
