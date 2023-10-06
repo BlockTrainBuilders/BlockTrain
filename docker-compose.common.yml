@@ -1,0 +1,13 @@
+version: '3'
+services:
+  blocktrain-runner:
+    image: ${IMAGE}/blocktrain-runner:${TAG}
+    platform: linux/amd64
+    environment:
+      DEBUG: ${DEBUG}
+      PORT: ${PORT}
+      SEEDPHRASE: ${SEEDPHRASE}
+    build:
+      target: base
+    ports:
+      - "${PORT:-3000}:${PORT:-3000}"

@@ -1,0 +1,7 @@
+version: '3'
+services:
+  blocktrain-runner:
+    image: ${IMAGE}/blocktrain-runner:${TAG}
+    build:
+      target: base
+    restart: never
