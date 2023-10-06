@@ -15,10 +15,10 @@
 
 .mainApp {
   display: flex;
-  flex-direction: row;
-  items-align: center;
+  flex-direction: column;
+  items-align: start;
   width: 100%;
-  justify-content: center;
+  justify-content: start;
   border: 1px solid grey;
   margin: 1em;
   padding: 1em;
@@ -27,7 +27,7 @@
 .table {
   border: 1px solid grey;
   table-layout: fixed;
-  width: 80%;
+  width: 100%;
 }
 
 .table th {

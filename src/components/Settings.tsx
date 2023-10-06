@@ -1,7 +1,6 @@
 export function Settings() {
-
     return (
-        <div>
+        <div className="mainApp">
         <h1>Settings</h1>	
         <div>
             <table className="table">
