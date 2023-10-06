@@ -4,10 +4,14 @@ import {
   OKP4TestnetChain,
 } from "./constants";
 import { Sidebar } from "./components/Sidebar";
+import { QueryLawStone } from "./components/QueryLawStone";
+import { law_stone_contract_addr as contract_addr } from "./config/contracts.json"
+import { Connection } from "./components";
 
 configureGraz({
   defaultChain: OKP4TestnetChain,
 });
+
 
 function App() {
   return (
@@ -17,6 +21,8 @@ function App() {
       <h1>Settings</h1>	
     </div>
 
+      <QueryLawStone contractAddress={ contract_addr} />
+      <Connection chainInfo={OKP4TestnetChain} />
     </>
   );
 }
