@@ -2,11 +2,19 @@ import { useState } from "react";
 import { ModelCard } from "./ModelCard";
 import { Sidebar } from "./Sidebar";
 import { DataSets } from "./DataSets";
+import { LoadingSpinner } from "./LoadingSpinner";
 
 export function Models() {
-    const [selectModel, setSelectModel] = useState(false);
+    const [selectModel, setSelectModel] = useState<boolean>(false);
+    const [submitted, setSubmitted] = useState<boolean>(false);
     const inputArea = {
         padding: '10px',
+      };
+    const divStyle = {
+        display: 'flex',
+        justifyContent: 'center',
+        padding: '10px',
+        margin: 'auto',
       };
     const selected = {
         padding: '10px',
@@ -17,11 +25,20 @@ export function Models() {
         <>
         <Sidebar />
         <div className="mainApp">
+        {submitted ?
+        <div>
+            <h1>Training and deployment in progress...</h1>
+            <div style={divStyle}>
+            <LoadingSpinner />
+            </div>
+        </div>
+        :<>
+        
         <h1>AI Models Overview</h1>	
         <h2>Create a new model</h2>
         <div style={inputArea}>
             <input type="text" placeholder="Model Name" />
-            <button>Create New Model</button>
+            <button>Create Model</button>
         </div>
         <h2>Available Models</h2>
         <div className="models">
@@ -32,8 +49,10 @@ export function Models() {
                 <ModelCard title="Model 2" usage="Price Prediction" size="2.4 GB" license="Propietary" downloads="5" allowed={false}/>
             </div>
         </div>
-        {selectModel && <DataSets />}
-      </div>
+        {selectModel && <DataSets setSubmitted={setSubmitted} />}
+      </>
+      
+      }</div>
       </>
     );
 }
