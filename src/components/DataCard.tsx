@@ -2,10 +2,12 @@ export function DataCard({
     title,
     description,
     cost,
+    author,
 }: {
     title: string;
     description: string;
     cost: string;
+    author: string
 }) {
     const divStyle = {
         display: 'flex',
@@ -21,6 +23,7 @@ export function DataCard({
                     {description}
                 </div>
                 <div>Cost: {cost}</div>
+                <div>Author: {author}</div>
             </div>
       </>
     );

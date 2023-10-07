@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { DataCard } from "./DataCard";
 import { AkashParameters } from "./AkashParamaters";
+import { composeIsOwnerQuery } from "../hooks/prologQueries";
+import { law_stone_contract_addr as contract_addr } from "../config/contracts.json"
+import { usePrologQuery } from "../hooks/usePrologQuery";
 
 export function DataSets({
     setSubmitted,
@@ -14,19 +17,32 @@ export function DataSets({
         border: `${selectData ? '5px solid green' : '1px solid black'}`,
         borderRadius: '5px',
       };
-      const inputArea = {
-        padding: '10px',
-      };
+    const inputArea = {
+    padding: '10px',
+    };
 
+    const isOwnerDataSet1Query = composeIsOwnerQuery("X", "dataset1");
+    const isOwnerDataSet2Query = composeIsOwnerQuery("X", "dataset2");
+
+    const ownerDataSet1 = usePrologQuery({
+        contractAddress: contract_addr,
+        query: isOwnerDataSet1Query,
+    });
+    const ownerDataSet2 = usePrologQuery({
+        contractAddress: contract_addr,
+        query: isOwnerDataSet2Query,
+    });
+
+    console.log("ownerDataSet1", ownerDataSet1);
     return (
         <>
         <h2>Choose from related datasets...</h2>
         <div className="models">
             <div className="model" style={selectData === "Dataset 1" ? selected : undefined} onClick={() => setSelectData("Dataset 1")}>
-                <DataCard title="Dataset 1" description="My awesome data set FOR FREE" cost={"$ 0.0"}/>
+                <DataCard title="Dataset 1" description="My awesome data set FOR FREE" cost={"$ 0.0"} author={ownerDataSet1 ? ownerDataSet1.result?.answer?.results[0]?.substitutions[0].term.name : "Loading..."}/>
             </div>
             <div className="model" style={selectData === "Dataset 2" ? selected : undefined} onClick={() => setSelectData("Dataset 2")}>
-                <DataCard title="Dataset 2" description="My awesome data set BUT FOR $100!!!" cost={"$ 100.0"}/>
+                <DataCard title="Dataset 2" description="My awesome data set BUT FOR $100!!!" cost={"$ 100.0"} author={ownerDataSet2 ? ownerDataSet2.result?.answer?.results[0]?.substitutions[0].term.name : "Loading..."}/>
             </div>
         </div>
         {
