@@ -53,7 +53,7 @@ export function DataSets({
         </div>
         {
             selectData && <>
-            <AkashParameters />
+            <AkashParameters dataset={selectData} />
             <button onClick={() => setSubmitted(true)}>Train and deploy</button>
         </>
         }
