@@ -1,5 +1,6 @@
 The key code for the actual automation of the Akash orchestration can be found in /src/app.ts:
 
+NOTE: this code was provided to us with help from Maxime of Cloudmos, to be integrated. Included in the repo for future reference
 ```bash
 async function run() {
   if (!process.env.WALLET_MNEMONIC) throw new Error("The env variable WALLET_MNEMONIC is not set.");
