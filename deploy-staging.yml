@@ -13,7 +13,9 @@ services:
         as: 80
         http_options:
           max_body_size: 104857600
- 
+        to:
+          - global: true 
+        
 profiles:
   compute:
     blocktrain-runner:
