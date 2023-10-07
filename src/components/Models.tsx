@@ -11,6 +11,14 @@ import { usePrologQuery } from "../hooks/usePrologQuery";
 export function Models() {
     const [selectModel, setSelectModel] = useState<boolean>(false);
     const [submitted, setSubmitted] = useState<boolean>(false);
+    const [success, setSuccess] = useState<boolean>(false);
+    function trainAndDeploy() {
+        setSubmitted(true);
+        setTimeout(() => {
+            setSubmitted(false);
+            setSuccess(true);
+        }, 10000);
+    }
     const { data }= useAccount();
     const addr = data?.bech32Address ?? "";
     const { result: model1Result, error: error1, isLoading: isLoading1 } = usePrologQuery({
@@ -45,15 +53,22 @@ export function Models() {
         <>
         <Sidebar />
         <div className="mainApp">
-        {submitted ?
+        {success &&
+        <div>
+            <h1>Model Submitted ✅</h1>
+        </div>}
+        {submitted && !success &&
         <div>
             <h1>Training and deployment in progress...</h1>
             <div style={divStyle}>
             <LoadingSpinner />
             </div>
-        </div>
-        :<>
-        
+            <h2 style={divStyle}>Wait for it...</h2>
+            <div style={divStyle}>
+            <img src="https://media.giphy.com/media/H7TsKHN6xAoAy96fJr/giphy.gif" alt="loading" />
+            </div>
+        </div>}
+        {!submitted &&!success &&<>
         <h1>AI Models Overview</h1>	
         <h2>Create a new model</h2>
         <div style={inputArea}>
@@ -79,7 +94,7 @@ export function Models() {
             
             </div>
         </div>
-        {selectModel && <DataSets setSubmitted={setSubmitted} />}
+        {selectModel && <DataSets setSubmitted={trainAndDeploy} />}
       </>
       
       }</div>
