@@ -34,4 +34,5 @@ def results():
     return render_template('results.html', training_results=training_results)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    print("AI Model Trained and Deployed successfully!")
+    app.run(host='0.0.0.0', port=80)
