@@ -62,8 +62,8 @@ export function Models() {
         </div>
         <h2>Available Models</h2>
         <div className="models">
-          <div className={classUsed1}>
-            <div  style={selected} onClick={() => setSelectModel(!selectModel)}>
+          <div className={classUsed1} style={selected}>
+            <div onClick={canAccessModel1 ? () => setSelectModel(!selectModel) : () => {}}>
                 <ModelCard title="Model 1" usage="Sentiment Analysis" size="1.2 GB" license="Open Source" downloads="25" allowed={canAccessModel1}/>
                 {error1 && <span>Error: {"unknown: Dont know how the prologQueryResult returns errors"}</span>}
                 {isLoading1 && <span>Loading...</span>}

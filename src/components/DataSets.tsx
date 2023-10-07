@@ -33,16 +33,22 @@ export function DataSets({
         query: isOwnerDataSet2Query,
     });
 
+    function formatAddress (address: string) {
+        return `${address.substring(0,6)}...${address.substring(address.length - 6, address.length)}`;
+    }
+    const formattedAddress1 = ownerDataSet1?.result?.answer?.results[0]?.substitutions[0].term.name ? formatAddress(ownerDataSet1.result?.answer?.results[0]?.substitutions[0].term.name) : "Loading...";
+    const formattedAddress2 = ownerDataSet2?.result?.answer?.results[0]?.substitutions[0].term.name ? formatAddress(ownerDataSet2.result?.answer?.results[0]?.substitutions[0].term.name) : "Loading...";
+
     console.log("ownerDataSet1", ownerDataSet1);
     return (
         <>
         <h2>Choose from related datasets...</h2>
         <div className="models">
             <div className="model" style={selectData === "Dataset 1" ? selected : undefined} onClick={() => setSelectData("Dataset 1")}>
-                <DataCard title="Dataset 1" description="My awesome data set FOR FREE" cost={"$ 0.0"} author={ownerDataSet1 ? ownerDataSet1.result?.answer?.results[0]?.substitutions[0].term.name : "Loading..."}/>
+                <DataCard title="Dataset 1" description="My awesome data set FOR FREE" cost={"$ 0.0"} author={ownerDataSet1 ? formattedAddress1 : "Loading..."}/>
             </div>
             <div className="model" style={selectData === "Dataset 2" ? selected : undefined} onClick={() => setSelectData("Dataset 2")}>
-                <DataCard title="Dataset 2" description="My awesome data set BUT FOR $100!!!" cost={"$ 100.0"} author={ownerDataSet2 ? ownerDataSet2.result?.answer?.results[0]?.substitutions[0].term.name : "Loading..."}/>
+                <DataCard title="Dataset 2" description="My awesome data set BUT FOR $100!!!" cost={"$ 100.0"} author={ownerDataSet2 ? formattedAddress2 : "Loading..."}/>
             </div>
         </div>
         {

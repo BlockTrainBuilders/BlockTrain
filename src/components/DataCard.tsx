@@ -17,14 +17,15 @@ export function DataCard({
 
     return (
         <>
-            <h1>{title}</h1>	
-            <div style={divStyle}>
-                <div >
+            <h1>{title}</h1>
+            <div >
                     {description}
-                </div>
+                </div>	
+            <div style={divStyle}>
+            <div>Author: {author}</div>
                 <div>Cost: {cost}</div>
-                <div>Author: {author}</div>
             </div>
+            
       </>
     );
 }
