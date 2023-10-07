@@ -1,0 +1,54 @@
+---
+version: "2.0"
+
+services:
+  blocktrain-runner:
+    image: ghcr.io/blocktrainbuilders/blocktrain-server:v0.0.1
+    env:
+      - PORT=5000
+      - DEBUG=DEBUG,INFO,WARN,ERROR
+      - ADDRESS=okp41qljavkuszlclekhd2mjrnaexp4l6aljtnrvk6u
+    expose:
+      - port: 5000
+        as: 80
+        http_options:
+          max_body_size: 104857600
+ 
+profiles:
+  compute:
+    blocktrain-runner:
+      resources:
+        cpu:
+          units: 4
+        memory:
+          size: 20Gi
+        gpu:
+          units: 1
+          attributes:
+            vendor:
+              nvidia:
+                - model: a5000
+                - model: a6000
+                - model: 3090
+                - model: 3090ti
+                - model: 4090
+        storage:
+          - size: 10Gi
+  placement:
+    dcloud:
+      attributes:
+        host: akash
+      signedBy:
+        anyOf:
+          - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"
+      pricing:
+        blocktrain-runner:
+          denom: uakt
+          amount: 200
+
+deployment:
+  blocktrain-runner:
+    dcloud:
+      profile: blocktrain-runner
+      count: 1
+
