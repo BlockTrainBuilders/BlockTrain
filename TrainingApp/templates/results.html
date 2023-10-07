@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Training Results</title>
+</head>
+<body>
+    <h1>Training Results, Powered by OKP4</h1>
+    {% if training_results %}
+        <h2>Accuracy:</h2>
+        <ul>
+        {% for accuracy in training_results['accuracy'] %}
+            <li>{{ accuracy }}</li>
+        {% endfor %}
+        </ul>
+        <h2>Loss:</h2>
+        <ul>
+        {% for loss in training_results['loss'] %}
+            <li>{{ loss }}</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No training results available.</p>
+    {% endif %}
+</body>
+</html>
