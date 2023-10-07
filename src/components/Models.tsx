@@ -13,12 +13,17 @@ export function Models() {
     const [submitted, setSubmitted] = useState<boolean>(false);
     const { data }= useAccount();
     const addr = data?.bech32Address ?? "";
-    const canAccessModelQuery = composeCanAccessModelQuery(addr, "model1");
-    const { result, error, isLoading } = usePrologQuery({
+    const { result: model1Result, error: error1, isLoading: isLoading1 } = usePrologQuery({
       contractAddress: contract_addr,
-      query: canAccessModelQuery,
+      query: composeCanAccessModelQuery(addr, "model1"),
     });
-    console.log("result usePrologQuery", result.answer.success);
+    const canAccessModel1 = model1Result?.answer?.success as boolean;
+
+    const { result: model2Result, error: error2, isLoading: isLoading2 } = usePrologQuery({
+      contractAddress: contract_addr,
+      query: composeCanAccessModelQuery(addr, "model2"),
+    });
+    const canAccessModel2 = model2Result?.answer?.success as boolean;
 
     const inputArea = {
         padding: '10px',
@@ -31,9 +36,11 @@ export function Models() {
       };
     const selected = {
         padding: '10px',
-        border: `${selectModel ? '5px solid green' : '1px solid black'}`,
+        border: `${selectModel ? '5px solid green' : ''}`,
         borderRadius: '5px',
       };
+    const classUsed1 = canAccessModel1 ? "model" : "modelNotAllowed";
+    const classUsed2 = canAccessModel2 ? "model" : "modelNotAllowed";
     return (
         <>
         <Sidebar />
@@ -55,11 +62,11 @@ export function Models() {
         </div>
         <h2>Available Models</h2>
         <div className="models">
-            <div className="model" style={selected} onClick={() => setSelectModel(!selectModel)}>
-                <ModelCard title="Model 1" usage="Sentiment Analysis" size="1.2 GB" license="Open Source" downloads="25" allowed={true}/>
+            <div className={classUsed1} style={selected} onClick={() => setSelectModel(!selectModel)}>
+                <ModelCard title="Model 1" usage="Sentiment Analysis" size="1.2 GB" license="Open Source" downloads="25" allowed={canAccessModel1}/>
             </div>
-            <div className="modelNotAllowed">
-                <ModelCard title="Model 2" usage="Price Prediction" size="2.4 GB" license="Propietary" downloads="5" allowed={false}/>
+            <div className={classUsed2}>
+                <ModelCard title="Model 2" usage="Price Prediction" size="2.4 GB" license="Propietary" downloads="5" allowed={canAccessModel2}/>
             </div>
         </div>
         {selectModel && <DataSets setSubmitted={setSubmitted} />}
