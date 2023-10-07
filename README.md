@@ -14,6 +14,8 @@ B. to build image and deploy to akash
 # make sure this wallet has more than 5AKT
 % provider-services keys add blocktrain --recover
 "almost shy radio prepare alcohol under cruise frequent acid track card junior"
+% provider-services tx cert generate client --from blocktrain
+% provider-services tx cert publish client --from blocktrain
 
 % source env.staging.blocktrain.sh
 % make deploy-staging
