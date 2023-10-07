@@ -56,6 +56,7 @@ export function Models() {
         {success &&
         <div>
             <h1>Model Submitted ✅</h1>
+            <div style={divStyle}><a href="https://deploy.cloudmos.io/" target="_blank">Go to cloudmos</a></div>
         </div>}
         {submitted && !success &&
         <div>

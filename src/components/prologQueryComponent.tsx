@@ -24,7 +24,7 @@ export function PrologQueryComponent({
       {isLoading || !result ? <span>Loading...</span> : onQueryResult(result)}
       {error && <span>Error: {"unknown: Dont know how the prologQueryResult returns errors"}</span>}
     </div>
-  );
+  )
 }
 
 type PrologQueryResult = Record<string, unknown>;

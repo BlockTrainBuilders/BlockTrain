@@ -28,7 +28,7 @@ export function Home() {
       query={isOwnerQuery}
       onQueryResult={(data) => <div>{JSON.stringify(data)}</div>}
     />
-  </div>;
+  </div>
       
     </div>
     </>
