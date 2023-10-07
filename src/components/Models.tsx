@@ -25,13 +25,15 @@ export function Models() {
       contractAddress: contract_addr,
       query: composeCanAccessModelQuery(addr, "model1"),
     });
-    const canAccessModel1 = model1Result?.answer?.success as boolean;
+    const answer1 = model1Result?.answer as { success: boolean };
+    const canAccessModel1 = answer1?.success as boolean;
 
     const { result: model2Result, error: error2, isLoading: isLoading2 } = usePrologQuery({
       contractAddress: contract_addr,
       query: composeCanAccessModelQuery(addr, "model2"),
     });
-    const canAccessModel2 = model2Result?.answer?.success as boolean;
+    const answer2 = model2Result?.answer as { success: boolean };
+    const canAccessModel2 = answer2?.success as boolean;
 
     const inputArea = {
         padding: '10px',

@@ -36,8 +36,12 @@ export function DataSets({
     function formatAddress (address: string) {
         return `${address.substring(0,6)}...${address.substring(address.length - 6, address.length)}`;
     }
-    const formattedAddress1 = ownerDataSet1?.result?.answer?.results[0]?.substitutions[0].term.name ? formatAddress(ownerDataSet1.result?.answer?.results[0]?.substitutions[0].term.name) : "Loading...";
-    const formattedAddress2 = ownerDataSet2?.result?.answer?.results[0]?.substitutions[0].term.name ? formatAddress(ownerDataSet2.result?.answer?.results[0]?.substitutions[0].term.name) : "Loading...";
+
+    const answer1 = ownerDataSet1?.result?.answer as { results: any[] };
+    const answer2 = ownerDataSet2?.result?.answer as { results: any[] };
+
+    const formattedAddress1 = answer1?.results[0]?.substitutions[0].term.name ? formatAddress(answer1?.results[0]?.substitutions[0].term.name) : "Loading...";
+    const formattedAddress2 = answer2?.results[0]?.substitutions[0].term.name ? formatAddress(answer2?.results[0]?.substitutions[0].term.name) : "Loading...";
 
     console.log("ownerDataSet1", ownerDataSet1);
     return (
