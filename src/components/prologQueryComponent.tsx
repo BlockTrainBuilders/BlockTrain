@@ -1,5 +1,5 @@
 // PrologQueryComponent.tsx
-import React, { ReactElement } from "react";
+import { ReactElement } from "react";
 import { usePrologQuery } from "../hooks/usePrologQuery";
 import { PrologQuery } from "../hooks/prologQueries";
 

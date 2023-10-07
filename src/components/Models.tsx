@@ -3,10 +3,23 @@ import { ModelCard } from "./ModelCard";
 import { Sidebar } from "./Sidebar";
 import { DataSets } from "./DataSets";
 import { LoadingSpinner } from "./LoadingSpinner";
+import { useAccount } from "graz";
+import { composeCanAccessModelQuery } from "../hooks/prologQueries";
+import { law_stone_contract_addr as contract_addr } from "../config/contracts.json"
+import { usePrologQuery } from "../hooks/usePrologQuery";
 
 export function Models() {
     const [selectModel, setSelectModel] = useState<boolean>(false);
     const [submitted, setSubmitted] = useState<boolean>(false);
+    const { data }= useAccount();
+    const addr = data?.bech32Address ?? "";
+    const canAccessModelQuery = composeCanAccessModelQuery(addr, "model1");
+    const { result, error, isLoading } = usePrologQuery({
+      contractAddress: contract_addr,
+      query: canAccessModelQuery,
+    });
+    console.log("result usePrologQuery", result.answer.success);
+
     const inputArea = {
         padding: '10px',
       };
