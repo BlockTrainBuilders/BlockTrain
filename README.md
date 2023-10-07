@@ -1,15 +1,15 @@
-# Blocktrain Builders
+# Blocktrain Builders - Project Overview
 
-# Project Overview
+Empowering transparent AI model management and fair revenue sharing through the synergy of OKP4's governance and Akash's deployment ease.
 
 ## How to run
 
-## A. to run AI container locally
+### A. to run AI container locally
 
 % source env.development.blocktrain.sh
 % make dev
 
-## B. to build image and deploy to akash
+### B. to build image and deploy to akash
 
 ### setup github token for access to write to container registry
 
