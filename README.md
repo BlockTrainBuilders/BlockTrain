@@ -2,6 +2,10 @@
 
 Empowering transparent AI model management and fair revenue sharing through the synergy of OKP4's governance and Akash's deployment ease.
 
+## Deployed Frontend
+
+https://block-train-rouge.vercel.app/ 
+
 ## How to run
 
 ### A. to run AI container locally
