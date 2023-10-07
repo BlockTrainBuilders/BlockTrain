@@ -19,11 +19,30 @@ profiles:
     blocktrain-runner:
       resources:
         cpu:
-          units: 1.0
+          units: 4
         memory:
-          size: 512Mi
+          size: 20Gi
+        gpu:
+          units: 1
+          attributes:
+            vendor:
+              nvidia:
+//                - model: v100
+//                - model: h100
+//                - model: a100
+//                - model: a40
+//                - model: a16
+//                - model: t4
+//                - model: rtx5000
+//                - model: rtx6000
+//                - model: a4000
+                - model: a5000
+                - model: a6000
+                - model: 3090
+                - model: 3090ti
+                - model: 4090
         storage:
-          size: 512Mi
+          - size: 10Gi
   placement:
     dcloud:
       attributes:
