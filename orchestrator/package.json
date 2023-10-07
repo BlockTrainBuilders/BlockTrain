@@ -1,0 +1,27 @@
+{
+  "name": "orchestrator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node src/app.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@akashnetwork/akashjs": "^0.4.18",
+    "@cosmjs/proto-signing": "^0.29.5",
+    "@cosmjs/stargate": "^0.29.5",
+    "axios": "^1.5.0",
+    "cosmjs-types": "^0.8.0",
+    "dotenv": "^16.3.1",
+    "jsrsasign": "^10.8.6",
+    "ts-node": "^10.9.1"
+  },
+  "devDependencies": {
+    "@types/jsrsasign": "^10.5.9",
+    "@types/node": "^20.6.2",
+    "typescript": "^5.2.2"
+  }
+}
