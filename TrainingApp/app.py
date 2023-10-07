@@ -3,10 +3,11 @@ import subprocess
 import json
 import os
 
-# "1. query OKP4 and get data URL and other params"
-# "2. retrieve the data"
-# "3. build the model"
-# "4. make an API available to query the model and other OKP4 values"
+# 1. process environment variables
+# 2. query okp4 to check authentication (validation against environment variables), and get data paths and training parameters
+# 3. retrieve the data
+# 4. train the model
+# 5. make the model available publicly via port 5000/80
 
 app = Flask(__name__)
 
