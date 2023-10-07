@@ -3,13 +3,13 @@ version: "2.0"
 
 services:
   blocktrain-runner:
-    image: ${IMAGE}/blocktrain-runner:${TAG}
+    image: ghcr.io/blocktrainbuilders/blocktrain-runner:v0.0.1
     env:
-      - PORT=${PORT}
-      - DEBUG=${DEBUG}
-      - ADDRESS=${ADDRESS}
+      - PORT=5000
+      - DEBUG=DEBUG,INFO,WARN,ERROR
+      - ADDRESS=okp41qljavkuszlclekhd2mjrnaexp4l6aljtnrvk6u
     expose:
-      - port: ${PORT}
+      - port: 5000
         as: 80
         http_options:
           max_body_size: 104857600
@@ -53,3 +53,4 @@ deployment:
     dcloud:
       profile: blocktrain-runner
       count: 1
+
