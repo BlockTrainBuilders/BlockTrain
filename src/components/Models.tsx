@@ -62,11 +62,21 @@ export function Models() {
         </div>
         <h2>Available Models</h2>
         <div className="models">
-            <div className={classUsed1} style={selected} onClick={() => setSelectModel(!selectModel)}>
+          <div className={classUsed1}>
+            <div  style={selected} onClick={() => setSelectModel(!selectModel)}>
                 <ModelCard title="Model 1" usage="Sentiment Analysis" size="1.2 GB" license="Open Source" downloads="25" allowed={canAccessModel1}/>
+                {error1 && <span>Error: {"unknown: Dont know how the prologQueryResult returns errors"}</span>}
+                {isLoading1 && <span>Loading...</span>}
+            </div>
+            
             </div>
             <div className={classUsed2}>
+            <div >
                 <ModelCard title="Model 2" usage="Price Prediction" size="2.4 GB" license="Propietary" downloads="5" allowed={canAccessModel2}/>
+                {error2 && <span>Error: {"unknown: Dont know how the prologQueryResult returns errors"}</span>}
+                {isLoading2 && <span>Loading...</span>}
+            </div>
+            
             </div>
         </div>
         {selectModel && <DataSets setSubmitted={setSubmitted} />}
