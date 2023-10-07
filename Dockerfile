@@ -16,21 +16,31 @@ RUN BUILD_TAGS=muslc LINK_STATICALLY=true make build
 
 
 # image
-FROM clydedevv/bert-base-uncased:latest AS base
-LABEL maintainer="vaughn@doxx.me"
+# Use the official Python image as the base image
+FROM python:3.8-slim-buster AS base
 
-# config environment
-ENV ADDRESS ${ADDRESS:-notdefined}
-ENV DEBUG ${DEBUG:-DEBUG,INFO,WARN,ERROR}
-ENV PORT ${PORT:-8000}
-
-COPY --from=go-builder /src/target/dist/okp4d /usr/bin/okp4d
-COPY . /usr/src/app
-
+# Set the working directory
 WORKDIR /usr/src/app
-EXPOSE ${PORT}
-EXPOSE 22
 
-#ENTRYPOINT ["okp4d"]
-#CMD ["npm", "run", "start"]
-CMD ["sh", "blocktrain.sh"]
+# install okp4d
+COPY --from=go-builder /src/target/dist/okp4d /usr/bin/okp4d
+
+# Copy the requirements file into the container
+COPY TrainingApp/requirements.txt .
+
+# Install the required dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy the remaining files into the container
+COPY ./TrainingApp/ .
+
+# Set the Flask environment variables
+ENV FLASK_APP=app.py
+ENV FLASK_ENV=development
+
+# Expose the port the app will run on
+EXPOSE 5000
+
+# Command to run the application
+CMD ["flask", "run", "--host=0.0.0.0"]
+#CMD ["sh", "blocktrain.sh"]
