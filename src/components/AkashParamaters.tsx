@@ -1,3 +1,4 @@
+import { yamlFile } from "../constants";
 
 export function AkashParameters() {
     const divStyle = {
@@ -10,7 +11,9 @@ export function AkashParameters() {
         <>
         <h2>Deployment preview</h2>
         <div className="model">
-            <div style={divStyle}>Details...</div>
+            <div style={divStyle}>
+              {yamlFile}
+            </div>
         </div>
         
       </>

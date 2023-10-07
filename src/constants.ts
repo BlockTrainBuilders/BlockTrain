@@ -41,3 +41,50 @@ export const OKP4TestnetChain = {
       coinType: 118,
     },
   };
+
+  export const yamlFile = `
+  ---
+  version: "2.0"
+  
+  services:
+    blocktrain-runner:
+      image: \${IMAGE}/blocktrain-server:\${TAG}
+      env:
+        - PORT=\${PORT}
+        - DEBUG=\${DEBUG}
+        - ADDRESS=\${ADDRESS}
+      expose:
+        - port: \${PORT}
+          as: 80
+          http_options:
+            max_body_size: 104857600
+  
+  profiles:
+    compute:
+      blocktrain-runner:
+        resources:
+          cpu:
+            units: 1.0
+          memory:
+            size: 512Mi
+          storage:
+            size: 512Mi
+    placement:
+      dcloud:
+        attributes:
+          host: akash
+        signedBy:
+          anyOf:
+            - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"
+        pricing:
+          blocktrain-runner:
+            denom: uakt
+            amount: 200
+  
+  deployment:
+    blocktrain-runner:
+      dcloud:
+        profile: blocktrain-runner
+        count: 1
+  `;
+  
