@@ -3,6 +3,11 @@ import subprocess
 import json
 import os
 
+# "1. query OKP4 and get data URL and other params"
+# "2. retrieve the data"
+# "3. build the model"
+# "4. make an API available to query the model and other OKP4 values"
+
 app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
