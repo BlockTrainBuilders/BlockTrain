@@ -15,6 +15,9 @@ By utilizing Prolog rules on OKP4, BlockTrain governs who can access a particula
 ### Insight into Model Training Data:
 BlockTrain offers users a "look under the hood" of the models, allowing them to understand the data on which they are trained. This initiative is a step towards more transparent AI. It enables users to have better insight into model behavior and biases, which is often missing in today's consumer AI implementations.
 
+### Akash Integration and Ease of Deployment:
+BlockTrain is integrated with Akash, ensuring a seamless and efficient deployment process. The integration facilitates easy deployment of AI models and datasets on the decentralized cloud. Moreover, BlockTrain provides code for automated orchestration, simplifying the deployment process and reducing manual intervention.
+
 ## Repository Structure
 
 - **TrainingApp**: This directory contains Python scripts related to training models.
@@ -38,34 +41,54 @@ https://block-train-rouge.vercel.app/
 % source env.development.blocktrain.sh
 % make dev
 
-### B. to build image and deploy to akash
 
-### setup github token for access to write to container registry
+### B. Building the Image and Deploying to Akash
 
-### https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens
+#### Setting Up GitHub Token
 
-### then login to your
+Before deploying to Akash, ensure you have set up a GitHub token for access to write to the container registry. Follow the instructions provided in the [GitHub documentation](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) to generate and manage your personal access tokens.
 
-% echo <TOKEN> | docker login ghcr.io -u blocktrainbuilders --password-stdin
+Once you have your token, log in using the following command:
 
-### setup akash wallet (testing) to deploy to akash
+```bash
 
-### make sure this wallet has more than 5AKT
+echo <TOKEN> | docker login ghcr.io -u blocktrainbuilders --password-stdin
 
-% provider-services keys add blocktrain --recover
-"almost shy radio prepare alcohol under cruise frequent acid track card junior"
-% provider-services tx cert generate client --from blocktrain
-% provider-services tx cert publish client --from blocktrain
+```
 
-% source env.staging.blocktrain.sh
-% make deploy-staging
 
-## What the image does? (app.py)
+#### Setting Up Akash Wallet for Testing
 
----
+Ensure that your Akash wallet has a balance of more than 5AKT. Follow the steps below to set up your wallet:
 
-1. process environment variables
-2. query okp4 to check authentication (validation against environment variables), and get data paths and training parameters
-3. retrieve the data
-4. train the model
-5. make the model available publicly via port 5000/80
+Use the mnemonic phrase of your wallet, Then, generate and publish the client certificate:
+
+
+```bash
+
+provider-services tx cert generate client --from blocktrain
+provider-services tx cert publish client --from blocktrain
+
+```
+To deploy to Akash, source the environment and deploy:
+```bash
+
+source env.staging.blocktrain.sh
+make deploy-staging
+
+
+```
+
+
+## Functionality of the Image (app.py)
+
+The image performs the following tasks:
+
+1. Processes environment variables.
+2. Queries OKP4 to check authentication (validates against environment variables) and retrieves data paths and training parameters.
+3. Retrieves the necessary data.
+4. Trains the AI model.
+5. Makes the trained model publicly available via ports 5000 and 80.
+
+
+
