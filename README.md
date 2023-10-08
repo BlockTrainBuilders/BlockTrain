@@ -1,5 +1,5 @@
 # Blocktrain Builders - Project Overview
-![BlockTrain drawio](https://github.com/BlockTrainBuilders/BlockTrain/assets/80094928/8dd9ac37-cd08-4cb4-b83e-c316e3e5c8e3)
+![BlockTrain](https://github.com/BlockTrainBuilders/BlockTrain/assets/80094928/8c1f52ab-23c6-407a-a393-8dd67bf99dcb)
 
 ## Value Proposition
 
