@@ -38,9 +38,10 @@ https://block-train-rouge.vercel.app/
 
 ### A. to run AI container locally
 
+```text
 % source env.development.blocktrain.sh
 % make dev
-
+```
 
 ### B. Building the Image and Deploying to Akash
 
