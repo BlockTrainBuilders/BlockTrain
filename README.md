@@ -50,7 +50,7 @@ Before deploying to Akash, ensure you have set up a GitHub token for access to w
 
 Once you have your token, log in using the following command:
 
-```bash
+```text
 
 echo <TOKEN> | docker login ghcr.io -u blocktrainbuilders --password-stdin
 
@@ -64,14 +64,14 @@ Ensure that your Akash wallet has a balance of more than 5AKT. Follow the steps 
 Use the mnemonic phrase of your wallet, Then, generate and publish the client certificate:
 
 
-```bash
+```text
 
 provider-services tx cert generate client --from blocktrain
 provider-services tx cert publish client --from blocktrain
 
 ```
 To deploy to Akash, source the environment and deploy:
-```bash
+```text
 
 source env.staging.blocktrain.sh
 make deploy-staging
