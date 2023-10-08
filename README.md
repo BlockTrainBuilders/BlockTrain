@@ -1,4 +1,6 @@
 # Blocktrain Builders - Project Overview
+![image](https://github.com/BlockTrainBuilders/BlockTrain/assets/80094928/b3809f00-b85d-4893-869b-184fbb740a28)
+
 
 ## Value Proposition
 
