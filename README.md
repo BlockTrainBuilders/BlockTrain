@@ -1,6 +1,8 @@
 # Blocktrain Builders - Project Overview
 ![BlockTrain](https://github.com/BlockTrainBuilders/BlockTrain/assets/80094928/8c1f52ab-23c6-407a-a393-8dd67bf99dcb)
 
+BlockTrain enhances transparency and monetization in AI by embedding data ownership and revenue-sharing smart contracts on OKP4, coupled with controlled model access and insights into training data, leveraging Prolog and integrating with Akash for streamlined deployment.
+
 ## Value Proposition
 
 ### Transparency in Data Ownership:
